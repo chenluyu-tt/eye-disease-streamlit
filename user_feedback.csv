@@ -1,0 +1,4 @@
+timestamp,prediction,confidence,feedback,comment,image_name
+2025-07-31T15:51:44.987224,Diabetic Retinopathy,0.99999154,Correct,yes,
+2025-07-31T16:03:04.935760,Diabetic Retinopathy,0.999991536140442,Incorrect,,
+2025-07-31T16:12:07.177946,Diabetic Retinopathy,0.9999915361404419,Correct,yes,20250731_161205_test.png
