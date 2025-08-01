@@ -23,7 +23,7 @@ st.set_page_config(
 @st.cache_resource
 def load_model():
     try:
-        model = tf.keras.models.load_model("models/cheech_Final Model.keras")
+        model = tf.keras.models.load_model("EfficientNet B5.keras",compile=False)
         return model
     except Exception as e:
         st.error(f"❌ Model load failed: {e}")
@@ -46,7 +46,7 @@ categories = {
 # -------------------------------
 # UI HEADER & SIDEBAR
 # -------------------------------
-st.markdown("<h1 style='text-align: center;'>👁️ Eye Disease Classifier</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>🧿 Eye Disease Classifier</h1>", unsafe_allow_html=True)
 st.write("Upload an eye image (JPEG or PNG). The model will analyze it and predict the condition.")
 
 with st.sidebar:
@@ -59,6 +59,7 @@ with st.sidebar:
         - Glaucoma  
         - Normal  
 
+        **Upload a retinal scan** to get started.
         """
     )
 
@@ -80,7 +81,7 @@ if uploaded_file:
     image.save(image_path)
 
     # Preprocess for prediction
-    img = image.resize((224, 224))
+    img = image.resize((456, 456))
     img_array = np.array(img) / 255.0
     img_array = np.expand_dims(img_array, axis=0)
 
@@ -129,6 +130,42 @@ if uploaded_file:
     except Exception as e:
         st.error(f"⚠️ Prediction failed: {e}")
 
+# -------------------------------
+# VIEW FEEDBACK AND IMAGES (OWNER ONLY)
+# -------------------------------
+st.markdown("---")
+st.markdown("## 🗂️ Collected Feedback")
+
+if os.path.exists("user_feedback.csv"):
+    # Force image_name column to string to avoid float/NaN issues
+    df = pd.read_csv("user_feedback.csv", dtype={"image_name": str})
+
+    with st.expander("📄 View Feedback Table", expanded=False):
+        st.dataframe(df)
+
+    # Owner-only image access
+    with st.expander("📷 Owner-only: View submitted images"):
+        password = st.text_input("Enter owner password to view images:", type="password")
+
+        if password == "mysecret123":  # 🔒 Replace with your actual password
+            for i, row in df.iterrows():
+                image_name = str(row["image_name"]) if not pd.isna(row["image_name"]) else None
+
+                if image_name:
+                    image_path = os.path.join("feedback_images", image_name)
+                    if os.path.exists(image_path):
+                        st.image(
+                            image_path,
+                            caption=f"{image_name} | Prediction: {row['prediction']} | Feedback: {row['feedback']}",
+                            use_column_width=False,
+                            width=300
+                        )
+                    else:
+                        st.warning(f"⚠️ Image not found: {image_name}")
+        elif password:
+            st.error("❌ Incorrect password.")
+else:
+    st.info("No feedback submitted yet.")
 
 
 

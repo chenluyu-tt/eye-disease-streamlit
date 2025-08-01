@@ -24,7 +24,7 @@ st.markdown("<h1 style='text-align: center;'>👁️ Eye Disease Classifier</h1>
 
 st.markdown(
     "<h4 style='text-align: center;'>Welcome to upload an eye image (JPEG or PNG)!</h4>",
-    unsafe_allow_html=True
+    unsafe_allow_html=Trues
 )
 
 with st.sidebar:

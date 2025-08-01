@@ -16,7 +16,7 @@ Our goal? Build a smart, accessible, and slightly nerdy tool that helps people l
 ### 🧑‍💻 Team Members
 - **Aaditya Penmetsa** –[role] Rising senior from Irvington High School in California. Interested in biomedical sciences with a strong passion for ophthalmology and AI in healthcare.
 
-- **Brigitta Yu** –[Website Builder] I’m passionate about biomedical and applied math. My work explores intersections between eye care, reproductive health, and kinesiology—using code and research to solve real-world problems.
+- **Brigitta Yu** –[Website Designer] I’m passionate about biomedical and applied math. My work explores intersections between eye care, reproductive health, and kinesiology—using code and research to solve real-world problems.
 - **Cheech Li** – [Role] [intro]
 
 ### 🧑‍🏫 Mentor
@@ -31,7 +31,7 @@ GitHub: https://github.com/chenluyu-tt/eye-disease-streamlit.git
 aadipenmetsa@gmail.com
 
 chenluyu06@gmail.com
-	
+
 yingqili280@gmail.com
 
 """)
