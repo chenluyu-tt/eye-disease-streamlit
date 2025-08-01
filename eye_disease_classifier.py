@@ -54,8 +54,7 @@ Our goal is to create  a smart classifier, and a bridges between deep learning a
 # MODEL SELECTION + LOADING
 # -------------------------------
 model_choices = {
-    "DesNet201_1": "DesNet201_functional_model.keras",
-    "DesNet201":"DesNet201.keras",
+    "DesNet201":"DenseNet201.keras",
     "InceptionV3": "InceptionV3 Model2.keras",
     "EfficientNetB5": "EfficientNetB5_functional_model.keras"
 }
