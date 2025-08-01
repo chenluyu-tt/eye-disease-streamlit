@@ -107,7 +107,7 @@ if uploaded_file:
     image.save(image_path)
 
     # Preprocess for prediction
-    img = image.resize((456, 456))
+    img = image.resize((224, 224))
     img_array = np.array(img) / 255.0
     img_array = np.expand_dims(img_array, axis=0)
 
