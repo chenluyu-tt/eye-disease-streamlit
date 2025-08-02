@@ -1,5 +1,5 @@
-Hi!
-This is originally a program for BWSI.
+Hi!Welcome！
+email: chenluyu06@gmail.com
 
 # 👁️ Eye Disease Classifier Web App
 
@@ -72,3 +72,6 @@ pip install -r requirements.txt
 
 # Step 4: Run the app
 streamlit run app.py
+
+
+email: chenluyu06@gmail.com
